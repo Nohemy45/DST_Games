@@ -66,6 +66,16 @@ view: orders {
     sql: ${TABLE}.OrderDate ;;
   }
 
+  dimension: order_date2 {
+    type: date
+    sql: str_to_date(${TABLE}.OrderDate, '%d/%m/%Y');;
+  }
+
+  dimension: order_date_year {
+    type: string
+    sql: YEAR(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y'));;
+  }
+
   dimension: postal_code {
     type: number
     sql: ${TABLE}.PostalCode ;;
