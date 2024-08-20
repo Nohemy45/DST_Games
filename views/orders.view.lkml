@@ -44,9 +44,9 @@ view: orders {
     type: average
     sql: ${cost} ;;  }
 
-  measure: Benefit {
+  measure: Margin {
     type: average
-    sql: ${sales}/${sales} ;;
+    sql: ${profit}/${sales} ;;
   }
 
   dimension: country {
