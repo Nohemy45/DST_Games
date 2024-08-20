@@ -44,6 +44,11 @@ view: orders {
     type: average
     sql: ${cost} ;;  }
 
+  measure: Benefit {
+    type: average
+    sql: ${sales}/${sales} ;;
+  }
+
   dimension: country {
     type: string
     map_layer_name: countries
