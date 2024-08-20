@@ -47,6 +47,7 @@ view: orders {
   measure: Margin {
     type: average
     sql: ${profit}/${sales} ;;
+    value_format: "0.00%"
   }
 
   dimension: country {
