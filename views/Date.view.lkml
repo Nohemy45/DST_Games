@@ -1,6 +1,6 @@
 view: date {
-  dimension: order_date {
-    type: date
+  dimension_group: order_date {
+    type: duration
     sql: ${TABLE}.OrderDate ;;
   }
   # # You can specify the table name if it's different from the view name:
