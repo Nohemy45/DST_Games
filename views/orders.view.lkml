@@ -68,7 +68,7 @@ view: orders {
   }
 
   dimension: order_date {
-    type: string
+    type: date
     sql: ${TABLE}.OrderDate ;;
   }
 
@@ -104,7 +104,7 @@ view: orders {
   }
 
   dimension: ship_date {
-    type: string
+    type: date
     sql: ${TABLE}.ShipDate ;;
   }
 
