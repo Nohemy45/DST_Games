@@ -1,4 +1,4 @@
-view: date {
+view: Dates {
   dimension_group: order_date {
     type: duration
     sql: ${TABLE}.OrderDate ;;
