@@ -49,6 +49,12 @@ view: orders {
     type: average
     sql: ${cost} ;;  }
 
+  measure: Margin {
+    type: average
+    sql: ${profit}/${sales} ;;
+    value_format: "0.00%"
+  }
+
   dimension: country {
     type: string
     map_layer_name: countries
@@ -67,7 +73,7 @@ view: orders {
   }
 
   dimension: order_date {
-    type: string
+    type: date
     sql: ${TABLE}.OrderDate ;;
   }
 
@@ -118,7 +124,7 @@ view: orders {
   }
 
   dimension: ship_date {
-    type: string
+    type: date
     sql: ${TABLE}.ShipDate ;;
   }
 
