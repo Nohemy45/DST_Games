@@ -81,6 +81,11 @@ view: orders {
     sql: YEAR(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y'));;
   }
 
+  dimension: order_date_month {
+    type: string
+    sql: monthname(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y'));;
+  }
+
   dimension: postal_code {
     type: number
     sql: ${TABLE}.PostalCode ;;
