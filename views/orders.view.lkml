@@ -73,7 +73,7 @@ view: orders {
   }
 
   dimension: postal_code {
-    type: number
+    type: zipcode
     sql: ${TABLE}.PostalCode ;;
   }
 
@@ -112,6 +112,8 @@ view: orders {
     type: string
     sql: ${TABLE}.ShipMode ;;
   }
+
+
 
   dimension: state {
     type: string
