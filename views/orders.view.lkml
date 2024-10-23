@@ -35,7 +35,7 @@ view: orders {
 
   dimension: year {
     type: number
-    sql: EXTRACT(YEAR FROM ${TABLE}.ShipDate) ;;
+    sql: EXTRACT(YEAR FROM ${TABLE}.OrderDate) ;;
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
