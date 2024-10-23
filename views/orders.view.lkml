@@ -39,13 +39,19 @@ view: orders {
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
   measure: total_profit {
     type: sum
-    sql: ${profit} ;;  }
+    sql: ${profit} ;;
+    value_format: "$#,##0"
+  }
   measure: total_sales {
     type: sum
-    sql: ${sales} ;;  }
+    sql: ${sales} ;;
+    value_format: "$#,##0"
+  }
   measure: total_cost {
     type: sum
-    sql: ${cost} ;;  }
+    sql: ${cost} ;;
+    value_format: "$#,##0"
+    }
   measure: average_cost {
     type: average
     sql: ${cost} ;;  }
