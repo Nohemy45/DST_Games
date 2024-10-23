@@ -31,6 +31,7 @@ view: orders {
   dimension: cost {
     type: number
     sql: ${TABLE}.Cost ;;
+    value_format: "$#,##0"
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
@@ -106,6 +107,7 @@ view: orders {
   dimension: profit {
     type: number
     sql: ${TABLE}.Profit ;;
+    value_format: "$#,##0"
   }
 
   dimension: quantity {
@@ -121,6 +123,7 @@ view: orders {
   dimension: sales {
     type: number
     sql: ${TABLE}.Sales ;;
+    value_format: "$#,##0"
   }
 
   dimension: ship_date {
