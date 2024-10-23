@@ -29,37 +29,43 @@ explore: customers {}
 
 explore: orders {
   join: products {
-    type: left_outer 
+    type: left_outer
     sql_on: ${orders.product_id} = ${products.product_id} ;;
     relationship: many_to_one
   }
 
   join: customers {
-    type: left_outer 
+    type: left_outer
     sql_on: ${orders.customer_id} = ${customers.customer_id} ;;
     relationship: many_to_one
   }
+
+  join: returns {
+    type: left_outer
+    sql_on: ${orders.order_id} = ${returns.order_id} ;;
+    relationship: many_to_one
+  }
+
 }
 
 explore: products {}
 
 explore: returns {
   join: orders {
-    type: left_outer 
+    type: left_outer
     sql_on: ${returns.order_id} = ${orders.order_id} ;;
     relationship: many_to_one
   }
 
   join: products {
-    type: left_outer 
+    type: left_outer
     sql_on: ${orders.product_id} = ${products.product_id} ;;
     relationship: many_to_one
   }
 
   join: customers {
-    type: left_outer 
+    type: left_outer
     sql_on: ${orders.customer_id} = ${customers.customer_id} ;;
     relationship: many_to_one
   }
 }
-

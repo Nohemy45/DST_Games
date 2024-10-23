@@ -41,7 +41,12 @@ view: orders {
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
+  measure: total_profit {
+    type: sum
+    sql: ${profit} ;;  }
+  measure: total_sales {
+    type: sum
+    sql: ${sales} ;;  }
   measure: total_cost {
     type: sum
     sql: ${cost} ;;  }
@@ -75,6 +80,21 @@ view: orders {
   dimension: order_date {
     type: date
     sql: ${TABLE}.OrderDate ;;
+  }
+
+  dimension: order_date2 {
+    type: date
+    sql: str_to_date(${TABLE}.OrderDate, '%d/%m/%Y');;
+  }
+
+  dimension: order_date_year {
+    type: string
+    sql: YEAR(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y'));;
+  }
+
+  dimension: order_date_month {
+    type: string
+    sql: monthname(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y'));;
   }
 
   dimension: postal_code {

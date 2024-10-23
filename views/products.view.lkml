@@ -20,6 +20,7 @@ view: products {
   dimension: category {
     type: string
     sql: ${TABLE}.Category ;;
+    drill_fields: [sub_category]
   }
 
   dimension: sub_category {
