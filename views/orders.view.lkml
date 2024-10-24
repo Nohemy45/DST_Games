@@ -88,6 +88,10 @@ view: orders {
     type: date
     sql: ${TABLE}.OrderDate ;;
   }
+  dimension: order_date_parsed {
+    type: date
+    sql: PARSE_DATE('%d/%m/%Y', ${TABLE}.OrderDate) ;;
+  }
 
   dimension: order_date2 {
     type: date
