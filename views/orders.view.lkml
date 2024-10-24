@@ -108,6 +108,12 @@ view: orders {
     sql: monthname(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y'));;
   }
 
+  dimension_group: order_date_group {
+    type: time
+    timeframes: [raw, date, week, month, quarter, year]
+    sql: ${order_date_parsed} ;;
+  }
+
   dimension: postal_code {
     type: zipcode
     sql: ${TABLE}.PostalCode ;;
