@@ -31,6 +31,7 @@ view: orders {
   dimension: cost {
     type: number
     sql: ${TABLE}.Cost ;;
+    value_format: "$#,##0"
   }
 
   dimension: year {
@@ -43,13 +44,19 @@ view: orders {
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
   measure: total_profit {
     type: sum
-    sql: ${profit} ;;  }
+    sql: ${profit} ;;
+    value_format: "$#,##0"
+  }
   measure: total_sales {
     type: sum
-    sql: ${sales} ;;  }
+    sql: ${sales} ;;
+    value_format: "$#,##0"
+  }
   measure: total_cost {
     type: sum
-    sql: ${cost} ;;  }
+    sql: ${cost} ;;
+    value_format: "$#,##0"
+    }
   measure: average_cost {
     type: average
     sql: ${cost} ;;  }
@@ -88,7 +95,7 @@ view: orders {
   }
 
   dimension: order_date_year {
-    type: string
+    type: number
     sql: YEAR(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y'));;
   }
 
@@ -111,6 +118,7 @@ view: orders {
   dimension: profit {
     type: number
     sql: ${TABLE}.Profit ;;
+    value_format: "$#,##0"
   }
 
   dimension: quantity {
@@ -126,6 +134,7 @@ view: orders {
   dimension: sales {
     type: number
     sql: ${TABLE}.Sales ;;
+    value_format: "$#,##0"
   }
 
   dimension: ship_date {
