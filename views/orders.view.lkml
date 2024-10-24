@@ -90,7 +90,7 @@ view: orders {
   }
   dimension: order_date_parsed {
     type: date
-    sql: CAST(STR_TO_DATE(${TABLE}.OrderDatt, '%d/%m/%Y) AS DATE) ;;
+    sql: CAST(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y') AS DATE) ;;
   }
 
   dimension: order_date2 {
