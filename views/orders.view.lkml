@@ -90,7 +90,7 @@ view: orders {
   }
 
   dimension: order_date_year {
-    type: number
+    type: string
     sql: YEAR(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y'));;
   }
 
