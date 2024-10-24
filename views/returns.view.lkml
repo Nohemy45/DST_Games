@@ -21,6 +21,11 @@ view: returns {
     type: string
     sql: ${TABLE}.Returned ;;
   }
+  dimension: return {
+    type: string
+    sql: COALESCE(${TABLE}.Returned,'No') ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [orders.order_id]
