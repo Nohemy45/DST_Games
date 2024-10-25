@@ -73,6 +73,13 @@ view: orders {
     filters: [order_date: "last year"]
     value_format: "$#,##0"
   }
+
+  measure: yoy_growth {
+    type: number
+    sql: (${total_sales} - ${previous_year_sales}) / ${previous_year_sales} ;;
+  }
+
+
   dimension: country {
     type: string
     map_layer_name: countries
