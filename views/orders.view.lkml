@@ -67,6 +67,12 @@ view: orders {
     value_format: "0.00%"
   }
 
+  measure: previous_year_sales {
+    type: sum
+    sql: ${sales} ;;
+    filters: [order_date: "last year"]
+    value_format: "$#,##0"
+  }
   dimension: country {
     type: string
     map_layer_name: countries
