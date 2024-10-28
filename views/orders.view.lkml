@@ -69,8 +69,8 @@ view: orders {
 
   measure: previous_year_sales {
     type: sum
-    sql: ${sales} ;;
-    filters: [order_date: "last year"]
+    sql: ${sales}
+    filters: [order_date_group_year -1];;
     value_format: "$#,##0"
   }
 
