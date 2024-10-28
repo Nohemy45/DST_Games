@@ -67,17 +67,7 @@ view: orders {
     value_format: "0.00%"
   }
 
-  measure: previous_year_sales {
-    type: sum
-    sql: ${sales}
-    filters: [order_date_group_year -1];;
-    value_format: "$#,##0"
-  }
 
-  measure: yoy_growth {
-    type: number
-    sql: (${total_sales} - ${previous_year_sales}) / ${previous_year_sales} ;;
-  }
 
 
   dimension: country {
