@@ -31,7 +31,9 @@ view: customers {
     sql: ${age} ;;  }
   measure: average_age {
     type: average
-    sql: ${age} ;;  }
+    sql: ${age} ;;
+    value_format: "##0"
+  }
 
   dimension: customer_name {
     type: string

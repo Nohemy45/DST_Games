@@ -17,6 +17,7 @@ view: orders {
   dimension: primary_key {
     primary_key: yes
     hidden: yes
+    type: number
     sql: CONCAT(${order_id},${product_id},${city}) ;;
   }
     # Here's what a typical dimension looks like in LookML.
@@ -45,6 +46,11 @@ view: orders {
   measure: total_sales {
     type: sum
     sql: ${sales} ;;
+    value_format: "$#,##0"
+  }
+  measure: total_sales_PY {
+    type: sum
+    sql: select ${sales} from  ;;
     value_format: "$#,##0"
   }
   measure: total_cost {
@@ -145,6 +151,10 @@ view: orders {
   dimension: state {
     type: string
     sql: ${TABLE}.State ;;
+  }
+  measure: orders_count {
+    type: count_distinct
+    sql: ${TABLE}.OrderID;;
   }
   measure: count {
     type: count

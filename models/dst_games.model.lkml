@@ -25,6 +25,8 @@ persist_with: dst_games_default_datagroup
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
 # Each joined view also needs to define a primary key.
 
+explore: Dates {}
+
 explore: customers {}
 
 explore: orders {
@@ -33,39 +35,41 @@ explore: orders {
     sql_on: ${orders.product_id} = ${products.product_id} ;;
     relationship: many_to_one
   }
-
   join: customers {
     type: left_outer
     sql_on: ${orders.customer_id} = ${customers.customer_id} ;;
     relationship: many_to_one
   }
-
   join: returns {
     type: left_outer
     sql_on: ${orders.order_id} = ${returns.order_id} ;;
     relationship: many_to_one
   }
-
+  join: Dates {
+    type: left_outer
+    sql_on: ${orders.order_date_year} = ${Dates.Year} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: products {}
 
 explore: returns {
-  join: orders {
-    type: left_outer
-    sql_on: ${returns.order_id} = ${orders.order_id} ;;
-    relationship: many_to_one
-  }
+#  join: orders_py {
+#    type: left_outer
+#    sql_on: ${returns.order_id} = ${orders_py.order_id_PY} ;;
+#    relationship: many_to_one
+#  }
 
-  join: products {
-    type: left_outer
-    sql_on: ${orders.product_id} = ${products.product_id} ;;
-    relationship: many_to_one
-  }
+#  join: products {
+#    type: left_outer
+#    sql_on: ${orders_py.product_id} = ${products.product_id} ;;
+#    relationship: many_to_one
+#  }
 
-  join: customers {
-    type: left_outer
-    sql_on: ${orders.customer_id} = ${customers.customer_id} ;;
-    relationship: many_to_one
-  }
+#  join: customers {
+#    type: left_outer
+#    sql_on: ${orders_py.customer_id} = ${customers.customer_id} ;;
+#    relationship: many_to_one
+#  }
 }
