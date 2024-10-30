@@ -35,6 +35,11 @@ view: orders {
     value_format: "$#,##0"
   }
 
+  dimension: year {
+    type: number
+    sql: EXTRACT(YEAR FROM ${TABLE}.OrderDate) ;;
+  }
+
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
@@ -68,6 +73,12 @@ view: orders {
     value_format: "0.00%"
   }
 
+
+
+
+
+
+
   dimension: country {
     type: string
     map_layer_name: countries
@@ -89,6 +100,10 @@ view: orders {
     type: date
     sql: ${TABLE}.OrderDate ;;
   }
+  dimension: order_date_parsed {
+    type: date
+    sql: CAST(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y') AS DATE) ;;
+  }
 
   dimension: order_date2 {
     type: date
@@ -105,8 +120,14 @@ view: orders {
     sql: monthname(str_to_date(${TABLE}.OrderDate, '%d/%m/%Y'));;
   }
 
+  dimension_group: order_date_group {
+    type: time
+    timeframes: [raw, date, week, month, quarter, year]
+    sql: ${order_date_parsed} ;;
+  }
+
   dimension: postal_code {
-    type: number
+    type: zipcode
     sql: ${TABLE}.PostalCode ;;
   }
 
@@ -147,6 +168,8 @@ view: orders {
     type: string
     sql: ${TABLE}.ShipMode ;;
   }
+
+
 
   dimension: state {
     type: string
